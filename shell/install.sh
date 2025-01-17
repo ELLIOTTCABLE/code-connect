@@ -1,11 +1,12 @@
 #!/usr/bin/env sh
 
-# https://github.com/chvolkmann/code-connect
+# https://github.com/ELLIOTTCABLE/code-connect
+# (a fork of https://github.com/chvolkmann/code-connect)
 
 # Configure this variable to change the install location of code-connect
 CODE_CONNECT_INSTALL_DIR=~/.code-connect
 
-CODE_CONNECT_BASE_URL="https://raw.githubusercontent.com/chvolkmann/code-connect/main"
+CODE_CONNECT_BASE_URL="https://raw.githubusercontent.com/ELLIOTTCABLE/code-connect/main"
 
 
 ####

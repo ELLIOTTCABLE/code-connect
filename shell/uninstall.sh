@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# https://github.com/chvolkmann/code-connect
+# https://github.com/ELLIOTTCABLE/code-connect
+# (a fork of https://github.com/chvolkmann/code-connect)
 
 CODE_CONNECT_INSTALL_DIR=~/.code-connect
 

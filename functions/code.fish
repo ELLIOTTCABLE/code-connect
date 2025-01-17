@@ -1,6 +1,7 @@
 #!/usr/bin/fish
 
-# https://github.com/chvolkmann/code-connect
+# https://github.com/ELLIOTTCABLE/code-connect
+# (a fork of https://github.com/chvolkmann/code-connect)
 
 function code --description 'Run local code exectuable if installed, run code-connect otherwise'
     set -l local_code_executable (which code 2>/dev/null)

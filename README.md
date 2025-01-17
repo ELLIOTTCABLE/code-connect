@@ -1,8 +1,12 @@
 # code-connect
 
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/chvolkmann/code-connect?label=version&style=flat-square)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/ELLIOTTCABLE/code-connect?label=version&style=flat-square)
 
 Open a file in your locally running Visual Studio Code instance from arbitrary terminal connections.
+
+## Fork
+
+This is my (@ELLIOTTCABLE's) fork of @chvolkmann's [code-connect](https://github.com/chvolkmann/code-connect). I've merged several outstanding PRs and cleaned up the shell-scripting a bit.
 
 ## Motivation
 
@@ -33,64 +37,42 @@ Afterwards, you should have a folder `.vscode-server` in your home directory.
 
 ## Installation
 
-### [Fish](https://fishshell.com/)
+### [fish](https://fishshell.com/)
 
-#### Installing
+#### fish: Installing
 
 With [fisher](https://github.com/jorgebucaran/fisher)
 
 ```fish
-fisher install chvolkmann/code-connect
+fisher install ELLIOTTCABLE/code-connect
 ```
 
 This downloads [`code_connect.py`](./bin/code_connect.py) along with two functions. See [`functions/code.fish`](./functions/code.fish) and [`functions/code-connect.fish`](./functions/code-connect.fish)
 
 You can autocomplete the repository name in subsequent commands, e.g. `fisher update code<TAB>`
 
-#### Updating
+#### fish: Updating
 
 ```fish
-fisher update chvolkmann/code-connect
+fisher update ELLIOTTCABLE/code-connect
 ```
 
-#### Uninstalling
+#### fish: Uninstalling
 
 ```fish
-fisher remove chvolkmann/code-connect
+fisher remove ELLIOTTCABLE/code-connect
 ```
-
-### POSIX-compliant shells (bash, dash, etc.)
-
-#### Installing & Updating
-
-With [`shell/install.sh`](./shell/install.sh)
-
-```sh
-sh -c "$(curl -sSLo- https://raw.githubusercontent.com/chvolkmann/code-connect/main/shell/install.sh)"
-```
-
-This downloads [`code_connect.py`](./bin/code_connect.py) along with two scripts and sets up aliases in your `.bashrc` for you. See [`shell/code.sh`](./shell/code.sh) and [`shell/code-connect.sh`](./shell/code-connect.sh)
-
-#### Uninstalling
-
-With [`shell/uninstall.sh`](./shell/uninstall.sh)
-
-```sh
-sh -c "$(curl -sSLo- https://raw.githubusercontent.com/chvolkmann/code-connect/main/shell/uninstall.sh)"
-```
-
-Deletes the aliases from `~/.bashrc` and removes the folder `~/.code-connect`
 
 ### Zsh
 
-#### Installing
+#### Zsh: Installing
 
-With [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+With [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh):
 
 1. Clones the repository into `$ZSH_CUSTOM/plugins` (by default `~/.oh-my-zsh/custom/plugins`)
 
 ```zsh
-git clone https://github.com/chvolkmann/code-connect $ZSH_CUSTOM/plugins/code-connect
+git clone https://github.com/ELLIOTTCABLE/code-connect $ZSH_CUSTOM/plugins/code-connect
 ```
 
 2. Add `code-connect` to the plugins array in your `.zshrc` file
@@ -99,17 +81,39 @@ git clone https://github.com/chvolkmann/code-connect $ZSH_CUSTOM/plugins/code-co
 plugins=(... code-connect)
 ```
 
-#### Updating
+#### Zsh: Updating
 
 ```zsh
 git -C $ZSH_CUSTOM/plugins/code-connect pull
 ```
 
-#### Uninstalling
+#### Zsh: Uninstalling
 
 ```zsh
 rm -rf $ZSH_CUSTOM/plugins/code-connect
 ```
+
+### POSIX-compliant shells (bash, dash, etc.)
+
+#### sh: Installing & Updating
+
+With [`shell/install.sh`](./shell/install.sh)
+
+```sh
+sh -c "$(curl -sSLo- https://raw.githubusercontent.com/ELLIOTTCABLE/code-connect/main/shell/install.sh)"
+```
+
+This downloads [`code_connect.py`](./bin/code_connect.py) along with two scripts and sets up aliases in your `.bashrc` for you. See [`shell/code.sh`](./shell/code.sh) and [`shell/code-connect.sh`](./shell/code-connect.sh)
+
+#### sh: Uninstalling
+
+With [`shell/uninstall.sh`](./shell/uninstall.sh)
+
+```sh
+sh -c "$(curl -sSLo- https://raw.githubusercontent.com/ELLIOTTCABLE/code-connect/main/shell/uninstall.sh)"
+```
+
+Deletes the aliases from `~/.bashrc` and removes the folder `~/.code-connect`
 
 ## Usage
 

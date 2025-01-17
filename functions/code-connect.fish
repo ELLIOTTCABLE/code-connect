@@ -1,6 +1,7 @@
 #!/usr/bin/fish
 
-# https://github.com/chvolkmann/code-connect
+# https://github.com/ELLIOTTCABLE/code-connect
+# (a fork of https://github.com/chvolkmann/code-connect)
 
 function code-connect --description 'Run Visual Studio Code through code-connect'
     # alias for code_connect.py

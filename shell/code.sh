@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
-# https://github.com/chvolkmann/code-connect
+# https://github.com/ELLIOTTCABLE/code-connect
+# (a fork of https://github.com/chvolkmann/code-connect)
 
 # Use this script through an alias
 #   alias code="/path/to/code.sh"

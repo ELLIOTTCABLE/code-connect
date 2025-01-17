@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-# https://github.com/chvolkmann/code-connect
+# https://github.com/ELLIOTTCABLE/code-connect
+# (a fork of https://github.com/chvolkmann/code-connect)
 
 import os
 import subprocess as sp
