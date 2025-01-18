@@ -27,9 +27,8 @@ c_emph="$c_magenta"
 c_path="$c_green"
 
 print() ( IFS=" " printf "$c_fg%s$c_reset\n" "$*" )
-
+print_n() ( IFS=" " printf "$c_fg%s$c_reset" "$*" )
 log() ( IFS=" " printf "$c_log%s$c_reset\n" "$*" )
-
 error() ( IFS=" " printf "$c_err%s$c_reset\n" "$*" >&2 )
 
 
@@ -69,6 +68,29 @@ ensure_alias () {
     fi
 }
 
+ensure_aliases () {
+    code_sh_path="$1"
+    code_connect_sh_path="$2"
+    print_n "May I modify your ${c_path}~/.bashrc${c_fg}? [yN] "
+    read -r yn
+
+    case $yn in
+        [Yy]*)
+            # Add the aliases to ~/.bashrc if not already done
+            ensure_alias "code" "$code_sh_path"
+            ensure_alias "code-connect" "$code_connect_sh_path"
+
+            ;;
+        *)
+            print "Okay; make sure to add the following to your shell-profile manually:"
+            print "alias code='$code_sh_path'"
+            print "alias code-connect='$code_connect_sh_path'"
+            ;;
+    esac
+
+    printf \\n
+}
+
 
 #####
 
@@ -87,25 +109,20 @@ CODE_CONNECT_PY="$CODE_CONNECT_INSTALL_DIR/bin/code_connect.py"
 download_repo_file "bin/code_connect.py" $CODE_CONNECT_PY
 chmod +x "$CODE_CONNECT_PY"
 
-mkdir -p "$CODE_CONNECT_INSTALL_DIR/bash"
+mkdir -p "$CODE_CONNECT_INSTALL_DIR/shell"
 
-CODE_SH="$CODE_CONNECT_INSTALL_DIR/bash/code.sh"
-download_repo_file "bash/code.sh" $CODE_SH
+CODE_SH="$CODE_CONNECT_INSTALL_DIR/shell/code.sh"
+download_repo_file "shell/code.sh" $CODE_SH
 chmod +x "$CODE_SH"
 
-CODE_CONNECT_SH="$CODE_CONNECT_INSTALL_DIR/bash/code-connect.sh"
-download_repo_file "bash/code-connect.sh" $CODE_CONNECT_SH
+CODE_CONNECT_SH="$CODE_CONNECT_INSTALL_DIR/shell/code-connect.sh"
+download_repo_file "shell/code-connect.sh" $CODE_CONNECT_SH
 chmod +x "$CODE_CONNECT_SH"
 
 printf \\n
 
+ensure_aliases "$CODE_SH" "$CODE_CONNECT_SH"
 
-# Add the aliases to ~/.bashrc if not already done
-ensure_alias "code" "$CODE_SH"
-ensure_alias "code-connect" "$CODE_CONNECT_SH"
-
-
-printf \\n
 print "${c_emph}code-connect${c_fg} installed to ${c_path}$CODE_CONNECT_INSTALL_DIR${c_fg} successfully!"
 printf \\n
 print "Restart your shell or reload your ${c_path}.bashrc${c_fg} to see the changes."
